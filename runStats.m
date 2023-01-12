@@ -20,8 +20,8 @@ load oddsratioIL.mat
 load tstats.mat
 load smapes.mat
 load RMSEs.mat
-load('fabBaseIL.mat', 'benchmark_FAB')
-load('multipliersIL.mat', 'true_output_multiplier')
+load('fabBase.mat', 'benchmark_FAB')
+load('multipliers.mat', 'true_output_multiplier')
 benchmarkMultipliers = true_output_multiplier.multiplier;
 clear true_output_multiplier
 allFABCombinedStats = [benchmark_FAB tstat_CombinedFABRandomSimulation ...

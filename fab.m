@@ -69,10 +69,10 @@ CombinedFABRandomSimulation = fab;
 %% Store the results into a .mat file
 
 % save Aggregation Bias results:
-save ('fabBaseIL', "benchmark_FAB","FABRandomSimulation", "CombinedFABRandomSimulation");
+save ('fabBase', "benchmark_FAB","FABRandomSimulation", "CombinedFABRandomSimulation");
 
 % save g simulations results 
-save ("gsimBaseIL", "RandomSimulationResults","CombinedRandomSimulationResults");
+save ("gsimBase", "RandomSimulationResults","CombinedRandomSimulationResults");
 
 
 

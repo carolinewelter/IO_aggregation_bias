@@ -7,7 +7,7 @@ tic
 clc;
 clear variables;
 load simBase.mat;
-load gsimBaseIL;
+load gsimBase;
 
 industry_output = IL(1:69,5);   % Illinois
 number_of_sectors = size(RandomSimulationResults,2);
@@ -92,7 +92,7 @@ output_multiplier_Combined_Random_Simulation(1).for_link_norm = sim_forward_link
 
 %% Store the results into a .mat file
 
-save ('multipliersIL', "true_output_multiplier", "key_industries", ...
+save ('multipliers', "true_output_multiplier", "key_industries", ...
     "output_multiplier_Random_Simulation", ...
     "output_multiplier_Combined_Random_Simulation");
 toc

@@ -3,8 +3,8 @@ runningIndependently = true;
 
 if(runningIndependently)
     clear variables
-    load fabBaseIL.mat;
-    load multipliersIL.mat
+    load fabBase.mat;
+    load multipliers.mat
     number_of_sectors = size(CombinedFABRandomSimulation,1);
     number_of_industries = size(true_output_multiplier.multiplier,2);
     number_of_random_steps_per_sector = size(CombinedFABRandomSimulation,2);
