@@ -36,8 +36,7 @@ else
     inUS = ip.Results.inUS;
 end
 
-% Default regions in simBase include CA, KY, and IL.  Any of these can be
-% used two lines below to see results from other regions.
+% Default regions in simBase is Illinois (IL).  
 if ismember('inReg', ip.UsingDefaults) 
     inReg = IL;   % names the default region
 else
@@ -110,15 +109,6 @@ for i = 1:number_of_industries
 end
 
 %% Random Simulation Design
-
-% This approach generates some larger and some smaller 
-% max industry values by generating (different) random variates relative to the sizes 
-% of each original industry value before re-scaling to meet the adding-up constraints.
-% This approach results in simulated_industry_output values that are closer to their output
-% values than the first approach. This is also ok, but we will want to be sure to characterize
-% fully the nature of the perturbations in each simulation and any implications of the random shock 
-% generating process for the interpretation of results.
-
 
 allresultsrand = struct([]); 
 

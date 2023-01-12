@@ -66,34 +66,13 @@ for j = 1:number_of_random_steps_per_sector
 end  
 CombinedFABRandomSimulation = fab; 
 
-%% Get Output Permutation Results
-
-outputPerm = getOutputPermutationResult('inReg',IL); 
-PermutationResult = outputPerm'; 
-
-%% FAB from the Permutation
- 
-fabPerm = zeros(number_of_sectors,size(PermutationResult,2));
-
-for j = 1:size(PermutationResult,2)
-    permuted_output = [PermutationResult(:,j);0;0];
-
-    outputArg = getRegionalA('inReg',IL,'newReg_g',permuted_output); 
-    detail_A = outputArg.a;  
-    f = outputArg.f;        
-
-    fabPerm(:,j) = (true_aggregate_A * industry_aggregation_scheme * final_demand) - (industry_aggregation_scheme * detail_A * f); % FAB for each permuted_output 
-end  
-FABPermutation = fabPerm; 
-
-
 %% Store the results into a .mat file
 
 % save Aggregation Bias results:
-save ('fabBaseIL', "benchmark_FAB","FABRandomSimulation", "CombinedFABRandomSimulation", "FABPermutation");
+save ('fabBaseIL', "benchmark_FAB","FABRandomSimulation", "CombinedFABRandomSimulation");
 
 % save g simulations results 
-save ("gsimBaseIL", "RandomSimulationResults","CombinedRandomSimulationResults","PermutationResult");
+save ("gsimBaseIL", "RandomSimulationResults","CombinedRandomSimulationResults");
 
 
 

@@ -91,7 +91,6 @@ IsScrapAdjusted = ip.Results.IsScrapAdjusted;
 number_of_commodities = (size(inReg,1)); %number of commodities
 number_of_industries = number_of_commodities - 2; % number of industries
 
-% detailed = 0;
 if(detailed == 0) % we want an aggregated table
    
     Sc = aggF(aggC);
@@ -102,8 +101,8 @@ if(detailed == 0) % we want an aggregated table
 
 %     ScrapColumns = [16,17];
     
-    number_of_commodities = (size(inReg,1)); %number of commodities
-    number_of_industries = number_of_commodities - 2; % number of industries
+    number_of_commodities = (size(inReg,1)); 
+    number_of_industries = number_of_commodities - 2;
     
     Use = Sc * Use * Si';
     Make = Si * Make * Sc';
@@ -125,13 +124,10 @@ FixedFD = inReg(:,1);
 varFD = cshares .* inUS(:,4); 
 
 dFD = sum(use,2) + exports + varFD + FixedFD; % regional domestic demand
-%dFD = sum(use,2) + exports + varFD + FixedFD; % regional domestic demand
 DFD = sum(Use,2) + inUS(:,1) + inUS(:,4); % national domestic demand
-% dFD(dFD<0) = 0;
-% DFD(DFD<0) = 0.0000001
 
 mshares = dFD./DFD; % "expected" shares of national commodity imports
-% mshares((mshares<0)) = 0;
+
 %% 
 % The initial regional shares of commodity imports are a function of regional 
 % demands, not regions supply (as with exports, e.g.), and mshares is the set 
@@ -235,7 +231,6 @@ end
 %%
 outputArg = struct();
 outputArg.a = a;
-% outputArg.Q = Q;
 outputArg.f = f;
 outputArg.m = output_multiplier;
 outputArg.back = backward_linkage;

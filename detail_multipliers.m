@@ -90,39 +90,7 @@ output_multiplier_Combined_Random_Simulation(1).back_link_norm = sim_backward_li
 output_multiplier_Combined_Random_Simulation(1).for_link = sim_forward_linkage;
 output_multiplier_Combined_Random_Simulation(1).for_link_norm = sim_forward_linkage_normalized;
 
-% %% Permutation Multipliers
-% 
-% output_multiplier_Permutation = struct('multiplier',{}, 'back_link', {}, 'back_link_norm', {}, 'for_link', {}, 'for_link_norm', {} ); 
-% permuted_output_multiplier = zeros(size(PermutationResult,2),number_of_industries);
-% permuted_backward_linkage = zeros(size(PermutationResult,2),number_of_industries);
-% permuted_backward_linkage_normalized = zeros(size(PermutationResult,2),number_of_industries);
-% permuted_forward_linkage = zeros(number_of_industries, size(PermutationResult,2));
-% permuted_forward_linkage_normalized = zeros(number_of_industries, size(PermutationResult,2));
-% 
-% for j = 1:size(PermutationResult,2)
-%     permuted_output = [PermutationResult(:,j);0;0];
-% 
-%     outputArg = getRegionalA('inReg',IL,'newReg_g',permuted_output); 
-%     permuted_output_multiplier(j,:) = outputArg.m;
-%     permuted_backward_linkage(j,:) = outputArg.back;
-%     permuted_backward_linkage_normalized(j,:) = outputArg.backward_normalized;
-%     permuted_forward_linkage(:,j) = outputArg.forward;
-%     permuted_forward_linkage_normalized(:,j) = outputArg.forward_normalized;
-%            
-% end  
-% output_multiplier_Permutation(1).multiplier = permuted_output_multiplier;
-% output_multiplier_Permutation(1).back_link = permuted_backward_linkage;
-% output_multiplier_Permutation(1).back_link_norm = permuted_backward_linkage_normalized;
-% output_multiplier_Permutation(1).for_link = permuted_forward_linkage;
-% output_multiplier_Permutation(1).for_link_norm = permuted_forward_linkage_normalized;
-
 %% Store the results into a .mat file
-
-% save Output Multipliers results:
-% save ('multipliersIL', "true_output_multiplier", "key_industries", ...
-%     "output_multiplier_Random_Simulation", ...
-%     "output_multiplier_Combined_Random_Simulation", ...
-%     "output_multiplier_Permutation");
 
 save ('multipliersIL', "true_output_multiplier", "key_industries", ...
     "output_multiplier_Random_Simulation", ...
