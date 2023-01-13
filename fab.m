@@ -1,5 +1,5 @@
 
-%% 
+%% First Order Aggregation Bias (FAB) Results
 
 clc;
 clear variables;
@@ -71,7 +71,7 @@ CombinedFABRandomSimulation = fab;
 % save Aggregation Bias results:
 save ('fabBase', "benchmark_FAB","FABRandomSimulation", "CombinedFABRandomSimulation");
 
-% save g simulations results 
+% save output (g) simulations results 
 save ("gsimBase", "RandomSimulationResults","CombinedRandomSimulationResults");
 
 
