@@ -13,7 +13,7 @@ toc
 
 % oddsratioIL
 % tstats
-smapes
+05_smapes
 
 clear variables
 load oddsratioIL.mat
