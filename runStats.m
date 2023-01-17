@@ -2,21 +2,21 @@ tic
 
 runningIndependently = false;
 clear variables
-load fabBaseIL.mat;
-load oddsratioIL.mat
-load multipliersIL.mat
+load fabBase.mat;
+load oddsratio.mat
+load multipliers.mat
 number_of_sectors = size(CombinedFABRandomSimulation,1);
 number_of_industries = size(true_output_multiplier.multiplier,2);
 number_of_random_steps_per_sector = size(CombinedFABRandomSimulation,2);
 parents = [1 2 5 6 7 9 12 13 14 15 16 17 18];
 toc
 
-% oddsratioIL
+% oddsRatio
 % tstats
-smapes
+% smapes
 
 clear variables
-load oddsratioIL.mat
+load oddsratio.mat
 load tstats.mat
 load smapes.mat
 load RMSEs.mat
