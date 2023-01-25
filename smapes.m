@@ -1,3 +1,8 @@
+%% SMAPE, RMSE and RMSPE
+% script file that generates the Symmetric Mean Absolute Percentage Error (SMAPE), the 
+% Root Mean Squared Error (RMSE) and the Root Mean Squared Percentage Error (RMSPE) results
+% for both FAB and Output Multipliers.
+
 
 runningIndependently = true;
 
@@ -11,7 +16,7 @@ if(runningIndependently)
     parents = [1 2 5 6 7 9 12 13 14 15 16 17 18 20];
 end
 
-%% Multiplier SMAPE -- all parents at once
+%% Multiplier SMAPE, RMSE and RMSPE -- all parents at once
 
 smapeCombinedMultipliers = zeros(number_of_industries,1);
 RMSECombinedMultipliers = zeros(number_of_industries,1);
@@ -24,7 +29,7 @@ for j = 1:number_of_industries
     RMSPECombinedMultipliers(j) = 100 * sqrt( mean(  ((y - f) / y).^2 ));
 end
 
-%% Multiplier SMAPE -- one parents at a time
+%% Multiplier SMAPE, RMSE and RMSPE -- one parents at a time
 
 smapeMultipliers = zeros(number_of_sectors,number_of_industries);
 RMSEMultipliers = zeros(number_of_sectors,number_of_industries);
@@ -40,9 +45,8 @@ for k = parents
     end
 end
 
-%% FAB
 
-%% FAB Smape -- All parents at once
+%% FAB SMAPE, RMSE and RMSPE -- All parents at once
 
 smapeCombinedFAB = zeros(number_of_sectors,1); 
 RMSECombinedFAB = zeros(number_of_sectors,1);
@@ -55,7 +59,7 @@ for j = 1:number_of_sectors
     RMSPECombinedFAB(j) = 100 * sqrt( mean(  ((y - f) / y).^2 ));
 end
 
-%% FAB Smape -- one parent at a time
+%% FAB SMAPE, RMSE and RMSPE -- one parent at a time
 
 smapeFAB = zeros(number_of_sectors,number_of_industries);
 RMSEFAB = zeros(number_of_sectors,number_of_industries);

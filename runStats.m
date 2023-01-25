@@ -1,3 +1,6 @@
+%% Run all the statistics and results
+% script file that combine and save all the results in one allStats.mat file.
+
 tic
 
 runningIndependently = false;
@@ -10,10 +13,6 @@ number_of_industries = size(true_output_multiplier.multiplier,2);
 number_of_random_steps_per_sector = size(CombinedFABRandomSimulation,2);
 parents = [1 2 5 6 7 9 12 13 14 15 16 17 18];
 toc
-
-% oddsRatio
-% tstats
-% smapes
 
 clear variables
 load oddsratio.mat

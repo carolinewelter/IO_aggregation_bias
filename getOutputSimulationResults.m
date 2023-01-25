@@ -1,4 +1,32 @@
 function  outputSim = getOutputSimulationResults(varargin)
+% Purpose:  getOutputSimulationResults it receives regional and national economic data 
+% and returns simulated regional outputs
+%
+% Input data in the US variable includes five (column) variables for
+% the US and the same five variables for the region that is the
+% focus of the regionalization. The five key variables for each place are  
+%
+ % Column 1: exogenously given (fixed) final demands - these are a function
+ %           of column control totals that do not change from simulation to 
+ %           simulation. These final demand activities include PCE,
+ %           Investment, and all government sectors
+ % Column 2: exports
+ % Column 3: imports
+ % Column 4: non-trade final demands that vary by sector as a function of 
+ %           commodity output.  For our set of FD activities, 
+ %           inventory adjustments are the only such activity
+ % Column 5: industry output
+%
+%  When there are only default variables, the function will draw from
+%  simBase.mat, where US is the five-variable set for the US, an data are
+%  available for IL, KY, and CA.
+% 
+%  
+%--------
+%   Written by: Caroline Welter and finalized by Randy Jackson
+%   November 3, 2022.
+%
+
 
 % Notation:
 % k = index for use over aggregate sectors 
@@ -36,7 +64,7 @@ else
     inUS = ip.Results.inUS;
 end
 
-% Default regions in simBase is Illinois (IL).  
+% Default region in simBase is Illinois (IL).  
 if ismember('inReg', ip.UsingDefaults) 
     inReg = IL;   % names the default region
 else

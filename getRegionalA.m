@@ -1,5 +1,5 @@
 function outputArg = getRegionalA(varargin)
-% Purpose:  getRegionalA is receives regional and national economic data 
+% Purpose:  getRegionalA it receives regional and national economic data 
 % and returns a regionalized IO coefficients matrix
 %
 % Input data in the US variable includes five (column) variables for

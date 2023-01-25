@@ -1,4 +1,5 @@
-% t-statistics
+%% T-statistics
+% script file that generates the FAB and Output Multipliers T-statistics results.
 
 runningIndependently = true;
 
@@ -14,7 +15,7 @@ if(runningIndependently)
     parents = [1 2 5 6 7 9 12 13 14 15 16 17 18 20];
 end
 
-%% tstats for FAB - one parent at a time
+%% Tstats for FAB - one parent sector at a time 
 tstat_FAB = struct([]);
 tstat_random_sim = zeros(number_of_sectors,2);
 for k = parents
@@ -24,17 +25,18 @@ for k = parents
     end
     tstat_FAB(k).steps = tstat_random_sim; 
 end
-%1:number_of_sectors
-%% tstats for FAB - all parents at once
+
+
+%% Tstats for FAB - all parent sectors at once
+
 tstat_CombinedFABRandomSimulation = zeros(number_of_sectors,2);
 for k = 1:number_of_sectors
    [~,p,~,stats] = ttest(CombinedFABRandomSimulation(k,:),benchmark_FAB(k,1));
    tstat_CombinedFABRandomSimulation(k,:) = [p,stats.tstat];
 end
 
-%% Tstats - Output Multipliers
 
-%% Multipliers - one parent at a time
+%% Tstats for Multipliers - one parent sector at a time 
 
 tstat_Multipliers = struct([]);
 tstat_random_sim = zeros(number_of_sectors,2);
@@ -48,9 +50,8 @@ for k = parents
     tstat_Multipliers(k).steps = tstat_random_sim; 
 end
 
-% Combination of the multiple single-industry perturbation (all at once):
+%% Tstats for Multipliers - all parent at once
 
-%% Multipliers - all parents at once
 tstat_CombinedMultipliers = zeros(number_of_industries,2);
 for k = 1:number_of_industries
    [~,p,~,stats] = ...
@@ -59,5 +60,6 @@ for k = 1:number_of_industries
    tstat_CombinedMultipliers(k,:) = [p,stats.tstat];
 end
 
+%%
 save('tstats', 'tstat_random_sim', 'tstat_Multipliers', 'tstat_FAB', ...
     "tstat_CombinedMultipliers", 'tstat_CombinedFABRandomSimulation')

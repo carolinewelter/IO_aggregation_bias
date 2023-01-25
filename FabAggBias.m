@@ -1,11 +1,11 @@
-
 %% First Order Aggregation Bias (FAB) Results
+% This script generates the First Order Aggregation Bias (FAB) results and the Output simulations results
 
 clc;
 clear variables;
 load simBase.mat;
 
-industry_output = IL(1:69,5);   % Illinois
+industry_output = IL(1:69,5);   % For Illinois
 commodity_aggregation_scheme = aggF(aggC);
 industry_aggregation_scheme = aggF(aggC(1:67));
 number_of_sectors = max(aggC) - 2;
@@ -33,7 +33,7 @@ CombinedRandomSimulationResults = outputSim.CombinedRandomSimulationResults;
 
 %% FAB from the Random Simulation
 
-% for each sector at a time
+% one parent sector at a time 
 FABRandomSimulation = struct([]);
 fab = zeros(number_of_sectors,number_of_random_steps_per_sector);
 
@@ -52,7 +52,7 @@ for k = 1:number_of_sectors
     FABRandomSimulation(k).steps = fab;        
 end
     
-% all results at once:
+% all parent sectors at once
 fab = zeros(number_of_sectors,number_of_random_steps_per_sector);
 
 for j = 1:number_of_random_steps_per_sector

@@ -9,7 +9,7 @@ clear variables;
 load simBase.mat;
 load gsimBase;
 
-industry_output = IL(1:69,5);   % Illinois
+industry_output = IL(1:69,5);   % For Illinois
 number_of_sectors = size(RandomSimulationResults,2);
 number_of_industries = size(industry_output,1) - 2;
 number_of_random_steps_per_sector = size(CombinedRandomSimulationResults,2);
@@ -37,7 +37,7 @@ end
 
 %% Random Simulation Multipliers
 
-% for each sector at a time
+% one parent sector at a time 
 output_multiplier_Random_Simulation = struct('multiplier',{}, 'back_link', {}, 'back_link_norm', {}, 'for_link', {}, 'for_link_norm', {} );
 simulated_output_multiplier = zeros(number_of_random_steps_per_sector,number_of_industries);
 simulated_backward_linkage = zeros(number_of_random_steps_per_sector,number_of_industries);
@@ -65,7 +65,7 @@ for k = 1:number_of_sectors
     output_multiplier_Random_Simulation(k).for_link_norm = simulated_forward_linkage_normalized;
 end
 
-% all results at once:
+% all parent sectors at once
 output_multiplier_Combined_Random_Simulation = struct('multiplier',{}, 'back_link', {}, 'back_link_norm', {}, 'for_link', {}, 'for_link_norm', {} );
 sim_output_multiplier = zeros(number_of_random_steps_per_sector,number_of_industries);
 sim_backward_linkage = zeros(number_of_random_steps_per_sector,number_of_industries);
