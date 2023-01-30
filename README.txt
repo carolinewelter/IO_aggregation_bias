@@ -10,7 +10,7 @@ Sequence of operations:
 the Root Mean Squared Percentage Error (RMSPE) results for both FAB and Output Multipliers.
 06: runStats.m - script file that combine and save all the results in one allStats.mat file.
 
-DATABASES:
+DATABASES (they will be generated when you run the scripts files):
 fabBase.mat - store FAB results from FabAggBias.m
 gsimBase.mat - store output simulation results from fab.m
 oddsratio.mat - store results from odds_ratio.m
