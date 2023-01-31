@@ -1,7 +1,7 @@
 simBase.mat - original database used as input for the simulations. Besides Illinois (IL) data, California (CA) and Kentucky (KY) data are available 
 for experimentation. For you to do that, you will need to change the IL in the scripts for CA or KY.
 
-Sequence of operations:
+Order of operations:
 01: FabAggBias.m - script file that generates the First Order Aggregation Bias (FAB) results and the Output simulations results
 02: detail_multipliers.m - script file that generates the IO multipliers for the 67 industries (detail level).
 03: oddsRatio.m - script file that generates the FAB and Output Multipliers Odds Ratio results.
